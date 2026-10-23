@@ -7,13 +7,25 @@ function countLongShifts(list) {
   let longShifts = list.filter(function (s) {
     return s.hours > 10;
   });
-  return longShifts.length
+  return longShifts.length;
 }
 function countShortShifts(list) {
   let shortShifts = list.filter(function (s) {
     return s.hours <= 10;
   });
-  return shortShifts.length
+  return shortShifts.length;
 }
 
-console.log(countLongShifts(shifts), countShortShifts(shifts));
+function shiftType(hours) {
+  if (hours <= 6) return "короткая";
+  if (hours <= 10) return "обычная";
+  return "длинная";
+}
+
+function describeShift(shift) {
+  return `${shift.day}: ${shift.hours} ч, ${shiftType(shift.hours)}`;
+}
+
+shifts.forEach(function (s) {
+  console.log(describeShift(s));
+});
