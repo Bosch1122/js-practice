@@ -3,6 +3,7 @@ let shifts = [
   { day: "вт", hours: 13 },
   { day: "ср", hours: 10 },
 ];
+
 let longTotal = shifts
   .filter(function (s) {
     return s.hours > 10;
